@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AR Fragrance | Your Bag</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+
+<style>
+
+/* ================================
+   RESET
+================================ */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#f7f4ee;
+    color:#171717;
+    font-family:"DM Sans",sans-serif;
+    min-height:100vh;
+    transition:.4s;
+}
+
+button{
+    font-family:inherit;
+}
+
+
+/* ================================
+   HEADER
+================================ */
+
+header{
+    width:90%;
+    max-width:1250px;
+    margin:auto;
+
+    padding:30px 0;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    border-bottom:1px solid #ded8ce;
+}
+
+
+/* LOGO */
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.logo-icon{
+    width:38px;
+    height:45px;
+
+    border:2px solid #c7a86b;
+
+    border-radius:8px 8px 15px 15px;
+
+    position:relative;
+
+    transform:rotate(180deg);
+
+    transition:.4s;
+}
+
+.logo-icon::before{
+    content:"";
+
+    position:absolute;
+
+    width:10px;
+    height:7px;
+
+    border:2px solid #c7a86b;
+    border-bottom:0;
+
+    top:-9px;
+    left:11px;
+
+    border-radius:5px 5px 0 0;
+}
+
+.logo-icon::after{
+    content:"AR";
+
+    position:absolute;
+
+    top:14px;
+    left:6px;
+
+    color:#c7a86b;
+
+    font-size:8px;
+
+    font-family:"Playfair Display",serif;
+
+    transform:rotate(180deg);
+}
+
+.brand-text strong{
+    display:block;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:21px;
+
+    letter-spacing:4px;
+}
+
+.brand-text span{
+    display:block;
+
+    color:#9b8354;
+
+    font-size:7px;
+
+    letter-spacing:4px;
+
+    margin-top:2px;
+}
+
+
+/* CONTINUE SHOPPING */
+
+.continue{
+    color:#171717;
+
+    text-decoration:none;
+
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    border-bottom:1px solid #171717;
+
+    padding-bottom:5px;
+
+    transition:.3s;
+}
+
+.continue:hover{
+    color:#b08e50;
+
+    border-color:#b08e50;
+}
+
+
+/* ================================
+   PAGE INTRO
+================================ */
+
+.page-intro{
+    width:90%;
+    max-width:1250px;
+
+    margin:70px auto 45px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:end;
+}
+
+.intro-small{
+    color:#a18857;
+
+    font-size:9px;
+
+    letter-spacing:5px;
+
+    margin-bottom:10px;
+}
+
+.page-intro h1{
+    font-family:"Playfair Display",serif;
+
+    font-size:clamp(40px,6vw,68px);
+
+    font-weight:600;
+
+    line-height:1;
+}
+
+.page-intro h1 span{
+    color:#a18857;
+
+    font-style:italic;
+}
+
+.item-count{
+    color:#777;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+}
+
+
+/* ================================
+   MAIN CART AREA
+================================ */
+
+.cart-wrapper{
+    width:90%;
+    max-width:1250px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 360px;
+
+    gap:55px;
+
+    align-items:start;
+}
+
+
+/* ================================
+   CART ITEMS
+================================ */
+
+.cart-box{
+    background:#fff;
+
+    border:1px solid #e3ddd3;
+
+    padding:12px;
+}
+
+
+/* SINGLE ITEM */
+
+.cart-item{
+    display:grid;
+
+    grid-template-columns:115px 1fr auto;
+
+    gap:22px;
+
+    padding:18px;
+
+    border-bottom:1px solid #eee9e0;
+
+    align-items:center;
+
+    transition:.3s;
+}
+
+.cart-item:last-child{
+    border-bottom:0;
+}
+
+.cart-item:hover{
+    background:#faf8f4;
+}
+
+
+/* PRODUCT IMAGE */
+
+.cart-image{
+    width:115px;
+    height:135px;
+
+    background:#f0ece4;
+
+    overflow:hidden;
+}
+
+.cart-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    transition:.5s;
+}
+
+.cart-item:hover .cart-image img{
+    transform:scale(1.06);
+}
+
+
+/* ITEM INFO */
+
+.item-label{
+    color:#a18857;
+
+    font-size:8px;
+
+    letter-spacing:3px;
+
+    margin-bottom:8px;
+}
+
+.item-name{
+    font-family:"Playfair Display",serif;
+
+    font-size:19px;
+
+    line-height:1.3;
+
+    margin-bottom:8px;
+}
+
+.item-price{
+    color:#555;
+
+    font-size:11px;
+}
+
+
+/* QUANTITY */
+
+.quantity{
+    display:flex;
+
+    align-items:center;
+
+    border:1px solid #d8d1c6;
+
+    width:max-content;
+
+    margin-top:17px;
+}
+
+.quantity button{
+    width:30px;
+    height:30px;
+
+    border:0;
+
+    background:transparent;
+
+    cursor:pointer;
+
+    font-size:14px;
+
+    transition:.2s;
+}
+
+.quantity button:hover{
+    background:#171717;
+
+    color:white;
+}
+
+.quantity span{
+    width:30px;
+
+    text-align:center;
+
+    font-size:10px;
+}
+
+
+/* ITEM RIGHT */
+
+.item-right{
+    text-align:right;
+
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:end;
+
+    justify-content:space-between;
+}
+
+.item-total{
+    font-family:"Playfair Display",serif;
+
+    font-size:18px;
+}
+
+.remove{
+    border:0;
+
+    background:transparent;
+
+    color:#999;
+
+    cursor:pointer;
+
+    font-size:18px;
+
+    transition:.3s;
+}
+
+.remove:hover{
+    color:#9c3140;
+
+    transform:scale(1.15);
+}
+
+
+/* ================================
+   SUMMARY
+================================ */
+
+.summary{
+    background:#171717;
+
+    color:white;
+
+    padding:32px 28px;
+
+    position:sticky;
+
+    top:25px;
+
+    box-shadow:0 25px 60px rgba(0,0,0,.13);
+}
+
+.summary-top{
+    color:#c7a86b;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    margin-bottom:8px;
+}
+
+.summary h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:29px;
+
+    font-weight:500;
+
+    margin-bottom:28px;
+}
+
+
+/* SUMMARY ROW */
+
+.summary-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:13px 0;
+
+    border-bottom:1px solid #333;
+
+    font-size:11px;
+}
+
+.summary-row span:first-child{
+    color:#aaa;
+}
+
+.summary-row span:last-child{
+    color:#eee;
+}
+
+
+/* DISCOUNT */
+
+.discount{
+    margin-top:24px;
+}
+
+.discount label{
+    display:block;
+
+    color:#aaa;
+
+    font-size:8px;
+
+    letter-spacing:2px;
+
+    margin-bottom:9px;
+}
+
+.discount-box{
+    display:flex;
+}
+
+.discount-box input{
+    width:100%;
+
+    padding:12px;
+
+    background:#222;
+
+    border:1px solid #333;
+
+    outline:none;
+
+    color:white;
+
+    font-family:inherit;
+
+    font-size:10px;
+}
+
+.discount-box button{
+    width:75px;
+
+    border:0;
+
+    background:#c7a86b;
+
+    color:#171717;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.discount-box button:hover{
+    background:white;
+}
+
+
+/* TOTAL */
+
+.total-row{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:28px;
+
+    padding-top:22px;
+
+    border-top:1px solid #555;
+}
+
+.total-row span:first-child{
+    font-size:9px;
+
+    letter-spacing:2px;
+
+    color:#aaa;
+}
+
+.total-price{
+    font-family:"Playfair Display",serif;
+
+    font-size:25px;
+
+    color:#d8c49b;
+}
+
+
+/* CHECKOUT */
+
+.checkout{
+    width:100%;
+
+    margin-top:25px;
+
+    padding:16px;
+
+    border:1px solid #c7a86b;
+
+    background:#c7a86b;
+
+    color:#171717;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    cursor:pointer;
+
+    transition:.35s;
+}
+
+.checkout:hover{
+    background:white;
+
+    border-color:white;
+
+    transform:translateY(-3px);
+}
+
+
+/* SECURE TEXT */
+
+.secure{
+    text-align:center;
+
+    color:#777;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+
+    margin-top:17px;
+}
+
+
+/* ================================
+   EMPTY CART
+================================ */
+
+.empty{
+    display:none;
+
+    text-align:center;
+
+    padding:80px 20px;
+}
+
+.empty-icon{
+    font-size:45px;
+
+    margin-bottom:20px;
+
+    opacity:.6;
+}
+
+.empty h2{
+    font-family:"Playfair Display",serif;
+
+    font-size:30px;
+
+    margin-bottom:10px;
+}
+
+.empty p{
+    color:#888;
+
+    font-size:11px;
+
+    margin-bottom:25px;
+}
+
+.empty button{
+    padding:13px 25px;
+
+    background:#171717;
+
+    color:white;
+
+    border:0;
+
+    cursor:pointer;
+
+    letter-spacing:2px;
+
+    font-size:9px;
+}
+
+
+/* ================================
+   FOOTER
+================================ */
+
+footer{
+    margin-top:100px;
+
+    padding:45px 20px;
+
+    background:#171717;
+
+    text-align:center;
+
+    color:#d8c49b;
+}
+
+.footer-logo{
+    font-family:"Playfair Display",serif;
+
+    font-size:23px;
+
+    letter-spacing:5px;
+}
+
+.footer-line{
+    width:40px;
+
+    height:1px;
+
+    background:#c7a86b;
+
+    margin:15px auto;
+}
+
+footer small{
+    color:#777;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+
+/* ================================
+   TOAST
+================================ */
+
+.toast{
+    position:fixed;
+
+    right:25px;
+    bottom:25px;
+
+    background:#171717;
+
+    color:white;
+
+    padding:14px 22px;
+
+    font-size:9px;
+
+    letter-spacing:1px;
+
+    transform:translateX(150%);
+
+    transition:.4s;
+
+    z-index:9999;
+}
+
+.toast.show{
+    transform:translateX(0);
+}
+
+
+/* ================================
+   DARK MODE
+================================ */
+
+body.dark{
+    background:#101010;
+
+    color:white;
+}
+
+body.dark header{
+    border-color:#292929;
+}
+
+body.dark .continue{
+    color:white;
+
+    border-color:#777;
+}
+
+body.dark .cart-box{
+    background:#181818;
+
+    border-color:#292929;
+}
+
+body.dark .cart-item{
+    border-color:#292929;
+}
+
+body.dark .cart-item:hover{
+    background:#202020;
+}
+
+body.dark .cart-image{
+    background:#222;
+}
+
+body.dark .item-price{
+    color:#aaa;
+}
+
+body.dark .quantity{
+    border-color:#444;
+}
+
+body.dark .quantity button{
+    color:white;
+}
+
+body.dark .item-label{
+    color:#c7a86b;
+}
+
+
+/* ================================
+   TABLET
+================================ */
+
+@media(max-width:900px){
+
+    .cart-wrapper{
+        grid-template-columns:1fr;
+
+        gap:30px;
+    }
+
+    .summary{
+        position:relative;
+
+        top:0;
+    }
+
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media(max-width:600px){
+
+    header{
+        width:92%;
+
+        padding:22px 0;
+    }
+
+    .brand-text strong{
+        font-size:18px;
+    }
+
+    .continue{
+        font-size:8px;
+    }
+
+    .page-intro{
+        width:92%;
+
+        margin:50px auto 30px;
+
+        display:block;
+    }
+
+    .page-intro h1{
+        font-size:43px;
+    }
+
+    .item-count{
+        margin-top:15px;
+    }
+
+    .cart-wrapper{
+        width:92%;
+    }
+
+    .cart-box{
+        padding:5px;
+    }
+
+    .cart-item{
+        grid-template-columns:80px 1fr;
+
+        gap:15px;
+
+        padding:15px 10px;
+    }
+
+    .cart-image{
+        width:80px;
+        height:100px;
+
+        grid-row:span 2;
+    }
+
+    .item-name{
+        font-size:16px;
+    }
+
+    .item-right{
+        grid-column:2;
+
+        flex-direction:row;
+
+        align-items:center;
+
+        margin-top:-5px;
+    }
+
+    .summary{
+        padding:28px 22px;
+    }
+
+    .toast{
+        left:15px;
+        right:15px;
+
+        text-align:center;
+    }
+
+}
+
+
+/* ================================
+   SMALL MOBILE
+================================ */
+
+@media(max-width:380px){
+
+    .brand-text span{
+        letter-spacing:2px;
+    }
+
+    .page-intro h1{
+        font-size:37px;
+    }
+
+    .cart-item{
+        grid-template-columns:70px 1fr;
+    }
+
+    .cart-image{
+        width:70px;
+        height:90px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================================
+     HEADER
+================================ -->
+
+<header>
+
+    <div class="brand">
+
+        <span class="logo-icon"></span>
+
+        <div class="brand-text">
+
+            <strong>AR</strong>
+
+            <span>FRAGRANCE</span>
+
+        </div>
+
+    </div>
+
+
+    <a
+        href="index.html"
+        class="continue"
+    >
+        ← CONTINUE SHOPPING
+    </a>
+
+</header>
+
+
+<!-- ================================
+     INTRO
+================================ -->
+
+<section class="page-intro">
+
+    <div>
+
+        <div class="intro-small">
+            YOUR SELECTION
+        </div>
+
+        <h1>
+            Your <span>Bag.</span>
+        </h1>
+
+    </div>
+
+    <div
+        class="item-count"
+        id="itemCount"
+    >
+        0 ITEMS
+    </div>
+
+</section>
+
+
+<!-- ================================
+     CART
+================================ -->
+
+<main class="cart-wrapper">
+
+
+    <div class="cart-box">
+
+        <div id="cartItems"></div>
+
+
+        <!-- EMPTY CART -->
+
+        <div
+            class="empty"
+            id="emptyCart"
+        >
+
+            <div class="empty-icon">
+                🛍
+            </div>
+
+            <h2>
+                Your bag is empty
+            </h2>
+
+            <p>
+                Discover a fragrance that feels like you.
+            </p>
+
+            <button
+                onclick="window.location.href='index.html'"
+            >
+                EXPLORE FRAGRANCES
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- ============================
+         SUMMARY
+    ============================= -->
+
+    <aside class="summary">
+
+        <div class="summary-top">
+            AR FRAGRANCE
+        </div>
+
+        <h2>
+            Order Summary
+        </h2>
+
+
+        <div class="summary-row">
+
+            <span>
+                Subtotal
+            </span>
+
+            <span id="subtotal">
+                RS.0
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Delivery
+            </span>
+
+            <span id="delivery">
+                RS.200
+            </span>
+
+        </div>
+
+
+        <div class="summary-row">
+
+            <span>
+                Discount
+            </span>
+
+            <span id="discount">
+                RS.0
+            </span>
+
+        </div>
+
+
+        <div class="discount">
+
+            <label>
+                HAVE A VOUCHER?
+            </label>
+
+            <div class="discount-box">
+
+                <input
+                    type="text"
+                    id="voucher"
+                    placeholder="ENTER CODE"
+                >
+
+                <button onclick="applyVoucher()">
+                    APPLY
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="total-row">
+
+            <span>
+                TOTAL
+            </span>
+
+            <span
+                class="total-price"
+                id="total"
+            >
+                RS.0
+            </span>
+
+        </div>
+
+
+        <button
+            class="checkout"
+            onclick="checkout()"
+        >
+            PROCEED TO CHECKOUT →
+        </button>
+
+
+        <div class="secure">
+            ✦ SECURE • SIMPLE • ELEGANT ✦
+        </div>
+
+    </aside>
+
+</main>
+
+
+<!-- ================================
+     FOOTER
+================================ -->
+
+<footer>
+
+    <div class="footer-logo">
+        AR FRAGRANCE
+    </div>
+
+    <div class="footer-line"></div>
+
+    <small>
+        © 2026 AR Fragrance • The Art of Perfume
+    </small>
+
+</footer>
+
+
+<div
+    class="toast"
+    id="toast"
+>
+    Welcome to your bag ✨
+</div>
+
+
+<script>
+
+/* =================================
+   CART DATA
+================================ */
+
+let cart =
+JSON.parse(
+    localStorage.getItem("arCart")
+) || [];
+
+
+/* =================================
+   DISPLAY CART
+================================ */
+
+function displayCart(){
+
+    let container =
+        document.getElementById(
+            "cartItems"
+        );
+
+    container.innerHTML = "";
+
+    let count = 0;
+
+    let subtotal = 0;
+
+
+    if(cart.length === 0){
+
+        document
+        .getElementById("emptyCart")
+        .style.display = "block";
+
+        document
+        .getElementById("itemCount")
+        .innerText = "0 ITEMS";
+
+        document
+        .getElementById("subtotal")
+        .innerText = "RS.0";
+
+        document
+        .getElementById("delivery")
+        .innerText = "RS.0";
+
+        document
+        .getElementById("total")
+        .innerText = "RS.0";
+
+        return;
+
+    }
+
+
+    document
+    .getElementById("emptyCart")
+    .style.display = "none";
+
+
+    cart.forEach(function(item,index){
+
+        count += item.quantity;
+
+        subtotal +=
+            item.price *
+            item.quantity;
+
+
+        let itemBox =
+            document.createElement("div");
+
+        itemBox.className =
+            "cart-item";
+
+
+        itemBox.innerHTML = `
+
+            <div class="cart-image">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+            </div>
+
+
+            <div class="item-info">
+
+                <div class="item-label">
+                    AR • FRAGRANCE
+                </div>
+
+                <div class="item-name">
+                    ${item.name}
+                </div>
+
+                <div class="item-price">
+                    RS.${item.price.toLocaleString()}
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="changeQuantity(${index},-1)"
+                    >
+                        −
+                    </button>
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+                    <button
+                        onclick="changeQuantity(${index},1)"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="item-right">
+
+                <div class="item-total">
+                    RS.${(
+                        item.price *
+                        item.quantity
+                    ).toLocaleString()}
+                </div>
+
+                <button
+                    class="remove"
+                    onclick="removeItem(${index})"
+                    title="Remove"
+                >
+                    ×
+                </button>
+
+            </div>
+
+        `;
+
+
+        container.appendChild(itemBox);
+
+    });
+
+
+    document
+    .getElementById("itemCount")
+    .innerText =
+        count +
+        (count === 1 ? " ITEM" : " ITEMS");
+
+
+    document
+    .getElementById("subtotal")
+    .innerText =
+        "RS." +
+        subtotal.toLocaleString();
+
+
+    let delivery =
+        subtotal > 0 ? 200 : 0;
+
+
+    document
+    .getElementById("delivery")
+    .innerText =
+        "RS." +
+        delivery.toLocaleString();
+
+
+    calculateTotal(
+        subtotal,
+        delivery
+    );
+
+}
+
+
+/* =================================
+   QUANTITY
+================================ */
+
+function changeQuantity(index,change){
+
+    cart[index].quantity += change;
+
+
+    if(cart[index].quantity <= 0){
+
+        cart.splice(index,1);
+
+    }
+
+
+    saveCart();
+
+    displayCart();
+
+}
+
+
+/* =================================
+   REMOVE
+================================ */
+
+function removeItem(index){
+
+    cart.splice(index,1);
+
+    saveCart();
+
+    displayCart();
+
+    showToast(
+        "Item removed from your bag"
+    );
+
+}
+
+
+/* =================================
+   SAVE
+================================ */
+
+function saveCart(){
+
+    localStorage.setItem(
+        "arCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =================================
+   VOUCHER
+================================ */
+
+let voucherApplied = false;
+
+
+function applyVoucher(){
+
+    let code =
+        document
+        .getElementById("voucher")
+        .value
+        .toUpperCase();
+
+
+    if(code === "SAVE10" && !voucherApplied){
+
+        voucherApplied = true;
+
+        let subtotal =
+            getSubtotal();
+
+        let discount =
+            subtotal * 0.10;
+
+
+        document
+        .getElementById("discount")
+        .innerText =
+            "- RS." +
+            discount.toLocaleString();
+
+
+        calculateTotal(
+            subtotal,
+            subtotal > 0 ? 200 : 0
+        );
+
+
+        showToast(
+            "10% discount applied ✦"
+        );
+
+    }else{
+
+        showToast(
+            "Enter a valid voucher code"
+        );
+
+    }
+
+}
+
+
+/* =================================
+   SUBTOTAL
+================================ */
+
+function getSubtotal(){
+
+    let subtotal = 0;
+
+    cart.forEach(function(item){
+
+        subtotal +=
+            item.price *
+            item.quantity;
+
+    });
+
+    return subtotal;
+
+}
+
+
+/* =================================
+   TOTAL
+================================ */
+
+function calculateTotal(
+    subtotal,
+    delivery
+){
+
+    let discount = 0;
+
+
+    if(voucherApplied){
+
+        discount =
+            subtotal * 0.10;
+
+    }
+
+
+    let total =
+        subtotal +
+        delivery -
+        discount;
+
+
+    document
+    .getElementById("discount")
+    .innerText =
+        discount > 0
+        ? "- RS." + discount.toLocaleString()
+        : "RS.0";
+
+
+    document
+    .getElementById("total")
+    .innerText =
+        "RS." +
+        total.toLocaleString();
+
+}
+
+
+/* =================================
+   CHECKOUT
+================================ */
+
+function checkout(){
+
+    if(cart.length === 0){
+
+        showToast(
+            "Your bag is empty."
+        );
+
+        return;
+
+    }
+
+
+    showToast(
+        "Checkout coming soon ✨"
+    );
+
+}
+
+
+/* =================================
+   TOAST
+================================ */
+
+function showToast(message){
+
+    let toast =
+        document.getElementById("toast");
+
+    toast.innerText = message;
+
+    toast.classList.add("show");
+
+
+    setTimeout(function(){
+
+        toast.classList.remove("show");
+
+    },2500);
+
+}
+
+
+/* =================================
+   LOAD
+================================ */
+
+displayCart();
+
+</script>
+
+</body>
+
+</html>
